@@ -62,6 +62,10 @@
                 ];
             };
 
+            zellij = {
+                enable = true;
+            };
+
             zsh = {
                 enable = true;
                 initContent = ''
