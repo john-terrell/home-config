@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+
+nix run github:nix-community/home-manager/release-25.05 -- switch --flake \#johnt@$(hostname)

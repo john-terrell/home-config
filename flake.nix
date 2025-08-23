@@ -2,7 +2,7 @@
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nixvim = {
@@ -17,8 +17,8 @@
         overlays = import ./overlays { inherit inputs outputs; };
 
         homeConfigurations = {
-            "johnt@macbookpro" = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+            "johnt@legion5i" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
                 extraSpecialArgs = {
                     inherit inputs outputs;
                     systemConfig = {};
@@ -29,6 +29,20 @@
                         ./users/johnt/profiles/desktop.nix
                 ];
             };
+
+            "johnt@macbookpro" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+                extraSpecialArgs = {
+                    inherit inputs outputs;
+                    systemConfig = {};
+                };
+                modules = [
+                    nixvim.homeManagerModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/darwin.nix
+                ];
+            };
+
             "johnt@macstudio-vm" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages."aarch64-linux";
                 extraSpecialArgs = {
@@ -38,7 +52,7 @@
                 modules = [
                     nixvim.homeManagerModules.nixvim
                         ./users/johnt
-                        ./users/johnt/profiles/darwin.nix
+                        ./users/johnt/profiles/desktop.nix
                 ];
             };
         };
