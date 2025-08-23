@@ -5,12 +5,15 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        nixvim.url = "github:john-terrell/nixvim";
+        nixvim = {
+            url = "github:nix-community/nixvim";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs: let
-      inherit (self) outputs;
-     in {
+        inherit (self) outputs;
+    in {
         overlays = import ./overlays { inherit inputs outputs; };
 
         homeConfigurations = {
@@ -21,8 +24,9 @@
                     systemConfig = {};
                 };
                 modules = [
-                    ./users/johnt
-                    ./users/johnt/profiles/desktop.nix
+                    nixvim.homeManagerModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/desktop.nix
                 ];
             };
         };

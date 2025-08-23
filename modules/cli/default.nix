@@ -2,6 +2,7 @@
     imports = [
         ./fzf.nix
         ./nitch.nix
+        ./nixvim
     ];
 
     programs.bat = {enable = true;};

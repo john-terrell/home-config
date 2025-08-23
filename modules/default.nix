@@ -1,7 +1,7 @@
 {...}: {
-  imports = [
-    ./cli
-    ./base.nix
-  ];
+    imports = [
+        ./cli
+        ./base.nix
+    ];
 }
 

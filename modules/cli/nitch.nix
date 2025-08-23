@@ -1,16 +1,16 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
+    config,
+    lib,
+    pkgs,
+    ...
 }:
 with lib; let
-  cfg = config.features.cli.shell.nitch;
+cfg = config.features.cli.shell.nitch;
 in {
-  options.features.cli.shell.nitch.enable = mkEnableOption "enable nitch";
+    options.features.cli.shell.nitch.enable = mkEnableOption "enable nitch";
 
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [nitch];
-  };
+    config = mkIf cfg.enable {
+        home.packages = with pkgs; [nitch];
+    };
 }
 

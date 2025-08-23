@@ -1,9 +1,10 @@
 {
     config,
-        lib,
-        pkgs,
-        systemConfig ? {},
-        ...
+    lib,
+    nixvim,
+    pkgs,
+    systemConfig ? {},
+    ...
 }: {
     imports = [
         ../../modules
@@ -15,7 +16,12 @@
             homeDirectory = lib.mkDefault "/home/${config.home.username}";
             stateVersion = "25.05";
             file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
+            shellAliases = {
+                rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
+                tp = "trash-put";
+            };
         };
+
         programs = {
             home-manager.enable = true;
 
@@ -27,7 +33,7 @@
                 signing.key = "64EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
                 delta.enable = false; # prefer difftastic
-                lfs.enable = true;
+                    lfs.enable = true;
                 aliases = {
                     st = "status";
                     logd = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
@@ -58,17 +64,13 @@
 
             zsh = {
                 enable = true;
-
                 initContent = ''
-# p10k instant prompt
+                    # p10k instant prompt
                     P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
                     [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-
                     source ~/.p10k.zsh
-
-                        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-                        '';
-
+                    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+                '';
                 plugins = with pkgs; [
                 {
                     file = "powerlevel10k.zsh-theme";
@@ -95,6 +97,6 @@
         };
     }
     (lib.mkIf (systemConfig != {}) systemConfig)
-        ];
+    ];
 }
 
