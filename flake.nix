@@ -17,6 +17,18 @@
         overlays = import ./overlays { inherit inputs outputs; };
 
         homeConfigurations = {
+            "johnt@macbookpro" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+                extraSpecialArgs = {
+                    inherit inputs outputs;
+                    systemConfig = {};
+                };
+                modules = [
+                    nixvim.homeManagerModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/desktop.nix
+                ];
+            };
             "johnt@macstudio-vm" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages."aarch64-linux";
                 extraSpecialArgs = {
@@ -26,7 +38,7 @@
                 modules = [
                     nixvim.homeManagerModules.nixvim
                         ./users/johnt
-                        ./users/johnt/profiles/desktop.nix
+                        ./users/johnt/profiles/darwin.nix
                 ];
             };
         };

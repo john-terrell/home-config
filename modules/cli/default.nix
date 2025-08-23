@@ -1,7 +1,6 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        ./nitch.nix
         ./nixvim
     ];
 

@@ -13,7 +13,7 @@
     {
         home = {
             username = "johnt";
-            homeDirectory = lib.mkDefault "/home/${config.home.username}";
+            homeDirectory = if pkgs.hostPlatform.isLinux then "/home/${config.home.username}" else "/Users/${config.home.username}";
             stateVersion = "25.05";
             file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
             shellAliases = {
