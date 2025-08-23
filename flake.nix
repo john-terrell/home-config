@@ -43,6 +43,19 @@
                 ];
             };
 
+            "johnt@macstudio" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+                extraSpecialArgs = {
+                    inherit inputs outputs;
+                    systemConfig = {};
+                };
+                modules = [
+                    nixvim.homeManagerModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/darwin.nix
+                ];
+            };
+
             "johnt@macstudio-vm" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages."aarch64-linux";
                 extraSpecialArgs = {
