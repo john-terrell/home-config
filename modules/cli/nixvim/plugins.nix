@@ -1,29 +1,53 @@
 {pkgs, ...}:
 {
     plugins = {
+# A completion engine for Neovim written in Lua, designed ot be fast and extensible.
+        cmp = {
+            enable = true;
+            autoEnableSources = true;
+            settings = {
+                sources = [
+                { name = "nvim_lsp"; }
+                { name = "path"; }
+                { 
+                    name = "buffer"; 
+                    option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+                }
+                ];
+                mapping = {
+                    "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+                    "<C-f>" = "cmp.mapping.scroll_docs(4)";
+                    "<C-Space>" = "cmp.mapping.complete()";
+                    "<C-e>" = "cmp.mapping.close()";
+                    "<Tab>" = "cmp.mapping.select_next_item()";
+                    "<S-Tab>" = "cmp.mapping.select_prev_item()";
+                    "<CR>" = "cmp.mapping.confirm({ select = true })";
+                };
+            };
+        };
         lsp = {
             enable = true;
             servers = {
-                # C/C++
+# C/C++
                 clangd = {
                     enable = true;
                     settings = {
                         cmd = [
                             "clangd"
-                            "--background-index"
+                                "--background-index"
                         ];
                         filetypes = [
                             "c"
-                            "cpp"
+                                "cpp"
                         ];
                         root_markers = [
                             "compile_commands.json"
-                            "compile_flags.txt"
-                            ".git"
+                                "compile_flags.txt"
+                                ".git"
                         ];
                     };
                 };
-                # Ziglang
+# Ziglang
                 zls = {
                     enable = true;
                     settings = {
@@ -35,14 +59,14 @@
                 };
             };
         };
-        # Provides a status line in NVIM
+# Provides a status line in NVIM
         lualine = {
             enable = true;
         };
         oil = {
             enable = true;
         };
-        # Fuzzy finder plugin
+# Fuzzy finder plugin
         telescope = {
             enable = true;
         };

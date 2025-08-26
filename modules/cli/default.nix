@@ -57,6 +57,7 @@
             fd
             httpie
             jq
+            jujutsu
             just
             lazygit
             nix-index
