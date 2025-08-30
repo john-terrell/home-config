@@ -60,7 +60,6 @@
 
     home.packages = with pkgs; [
         alejandra
-        bcompare
             btop
             comma
             coreutils
