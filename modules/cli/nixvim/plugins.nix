@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 {
     plugins = {
 # A completion engine for Neovim written in Lua, designed ot be fast and extensible.
@@ -9,8 +9,8 @@
                 sources = [
                 { name = "nvim_lsp"; }
                 { name = "path"; }
-                { 
-                    name = "buffer"; 
+                {
+                    name = "buffer";
                     option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
                 }
                 ];
@@ -25,10 +25,53 @@
                 };
             };
         };
+        conform-nvim = {  # Lightweight yet powerful formatter plugin
+            enable = true;
+            settings = {
+                formatters_by_ft = {
+                    cpp = [ "clang-format" ];
+                    "_" = [
+                        "squeeze_blanks"
+                        "trim_whitespace"
+                        "trim_newlines"
+                    ];
+                };
+                formatters = {
+                    squeeze_blanks = {
+                        command = lib.getExe' pkgs.coreutils "cat";
+                    };
+                };
+                format_on_save = # Lua
+      ''
+        function(bufnr)
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+
+          return { timeout_ms = 500, lsp_fallback = true }
+         end
+      '';
+    format_after_save = # Lua
+      ''
+        function(bufnr)
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+
+          return { lsp_fallback = true }
+        end
+      '';
+                log_level = "warn";
+                notify_on_error = true;
+                notify_no_formatters = true;
+            };
+        };
+        cmake-tools = {
+            enable = true;
+        };
         lsp = {
             enable = true;
             servers = {
-# C/C++
                 clangd = {
                     enable = true;
                     settings = {
@@ -47,7 +90,6 @@
                         ];
                     };
                 };
-# Ziglang
                 zls = {
                     enable = true;
                     settings = {
@@ -66,8 +108,14 @@
         oil = {
             enable = true;
         };
+        overseer = {
+            enable = true;
+        };
 # Fuzzy finder plugin
         telescope = {
+            enable = true;
+        };
+        toggleterm = {
             enable = true;
         };
         treesitter = {
@@ -94,10 +142,9 @@
                 ];
                 hightlight = {
                     enable = true;
-                    additional_vim_regex_highlighting = false; 
+                    additional_vim_regex_highlighting = false;
                 };
             };
         };
     };
 }
-

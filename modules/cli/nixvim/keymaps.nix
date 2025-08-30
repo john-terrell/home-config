@@ -8,12 +8,12 @@
     {
         mode = "n";
         action = "<cmd>Telescope find_files<CR>";
-        key = "<leader>ff";
+        key = "<leader>fF";
     }
     {
         mode = "n";
         action = "<cmd>Telescope git_files<CR>";
-        key = "<leader>pf";
+        key = "<leader>ff";
     }
     {
         mode = "n";
@@ -29,6 +29,11 @@
         mode = "n";
         action = "<cmd>Telescope lsp_definitions<CR>";
         key = "<leader>fd";
+    }
+    {
+        mode = "n";
+        action = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
+        key = "<leader>fs";
     }
     {
         mode = "n";
@@ -50,11 +55,5 @@
         action = "<cmd>Telescope marks<CR>";
         key = "<leader>sm";
     }
-    {
-        mode = "n";
-        action = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
-        key = "<leader>fs";
-    }
     ];
 }
-

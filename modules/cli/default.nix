@@ -39,6 +39,14 @@
         };
     };
 
+    programs.tmux = {
+        enable = true;
+        prefix = "C-a";
+        keyMode = "vi";
+        extraConfig = ''
+        '';
+    };
+
     programs.zoxide = {
         enable = true;
         enableFishIntegration = true;
@@ -47,6 +55,7 @@
 
     home.packages = with pkgs; [
         alejandra
+        bcompare
             btop
             comma
             coreutils
@@ -60,6 +69,7 @@
             jujutsu
             just
             lazygit
+            meld
             nix-index
             pass
             progress
@@ -68,8 +78,7 @@
             tldr
             trash-cli
             unzip
+            wl-clipboard-rs
             zip
     ];
 }
-
-

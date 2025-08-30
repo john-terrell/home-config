@@ -22,6 +22,8 @@
             };
         };
 
+        fonts.fontconfig.enable = true;
+
         programs = {
             home-manager.enable = true;
 
@@ -103,4 +105,3 @@
     (lib.mkIf (systemConfig != {}) systemConfig)
     ];
 }
-

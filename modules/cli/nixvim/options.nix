@@ -8,6 +8,9 @@
       vim.list_extend(vim.opt.backspace:get(), { "nostop" })
     '';
 
+    # Make the default yank buffer the system clipboard
+    clipboard = "unnamedplus";
+
     # Keep visual indentation on wrapped lines
     breakindent = true;
 
@@ -152,4 +155,3 @@
     writebackup = false;
   };
 }
-
