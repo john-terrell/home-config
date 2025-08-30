@@ -44,6 +44,11 @@
         prefix = "C-a";
         keyMode = "vi";
         extraConfig = ''
+            set -g base-index 1 # start window numbering at 1
+            bind -r h select-pane -L
+            bind -r l select-pane -R
+            bind -r j select-pane -D
+            bind -r k select-pane -U
         '';
     };
 
