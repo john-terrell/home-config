@@ -65,6 +65,7 @@
             comma
             coreutils
             devenv
+            findutils
             nerd-fonts.fira-code
             nerd-fonts.fira-mono
             nerd-fonts.meslo-lg
