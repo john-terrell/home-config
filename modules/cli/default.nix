@@ -84,7 +84,6 @@
             tldr
             trash-cli
             unzip
-            wl-clipboard-rs
             zip
     ];
 }
