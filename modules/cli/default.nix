@@ -1,7 +1,8 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        ./nixvim
+        #./nixvim
+	./neovim
     ];
 
     programs.bat = {enable = true;};
@@ -83,6 +84,7 @@
             tldr
             trash-cli
             unzip
+            yubikey-manager
             zip
     ];
 }

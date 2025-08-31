@@ -20,6 +20,9 @@
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
                 tp = "trash-put";
             };
+            sessionPath = [
+                "${config.home.homeDirectory}/.local/bin"
+            ];
         };
 
         fonts.fontconfig.enable = true;
