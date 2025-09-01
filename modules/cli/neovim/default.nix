@@ -1,14 +1,14 @@
 {pkgs, ...}: {
-    home.packages = with pkgs; [
-        clang
-    ];
-
     programs.neovim = {
         enable = true;
-	viAlias = true;
-	vimAlias = true;
-	extraLuaConfig = ''
+        defaultEditor = true;
+        viAlias = true;
+        vimAlias = true;
+        plugins = [
+            pkgs.vimPlugins.clang_complete
+        ];
+        extraLuaConfig = ''
             require("johnt")
-	'';
+            '';
     };
 }
