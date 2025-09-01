@@ -2,7 +2,7 @@
     imports = [
         ./fzf.nix
         #./nixvim
-	./neovim
+        ./neovim
     ];
 
     programs.bat = {enable = true;};
