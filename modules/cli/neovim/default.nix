@@ -1,6 +1,7 @@
 {pkgs, ...}: {
     home.packages = with pkgs; [
         clang-tools
+        clang
     ];
 
     programs.neovim = {
