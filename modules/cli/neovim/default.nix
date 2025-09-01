@@ -1,9 +1,4 @@
 {pkgs, ...}: {
-    home.packages = with pkgs; [
-        clang-tools
-        clang
-    ];
-
     programs.neovim = {
         enable = true;
         defaultEditor = true;
@@ -12,5 +7,12 @@
         extraLuaConfig = ''
             require("johnt")
             '';
+
+        extraPackages = with pkgs; [
+            clang
+            clang-tools
+            cmake
+            vscode-extensions.vadimcn.vscode-lldb
+        ];
     };
 }
