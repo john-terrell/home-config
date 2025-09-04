@@ -55,5 +55,15 @@
         action = "<cmd>Telescope marks<CR>";
         key = "<leader>sm";
     }
+    {
+        mode = "n";
+        action = "<cmd>CMakeBuild<CR>";
+        key = "<leader>bb";
+    }
+    {
+        mode = "n";
+        action = "<cmd>CMakeGenerate<CR>";
+        key = "<leader>bc";
+    }
     ];
 }

@@ -19,6 +19,8 @@
             shellAliases = {
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
                 tp = "trash-put";
+                ts = "tmux-sessionizer";
+                wifi_bonk = "modprobe -v rtw89_8852ce"
             };
             sessionPath = [
                 "${config.home.homeDirectory}/.local/bin"
@@ -73,7 +75,6 @@
 
             zsh = {
                 enable = true;
-                defaultKeymap = "vicmd";
                 initContent = ''
                     # p10k instant prompt
                     P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"

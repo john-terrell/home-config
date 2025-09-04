@@ -1,8 +1,8 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        #./nixvim
-        ./neovim
+        ./nixvim
+        #./neovim
     ];
 
     programs.bat = {enable = true;};
@@ -61,30 +61,30 @@
 
     home.packages = with pkgs; [
         alejandra
-            btop
-            comma
-            coreutils
-            devenv
-            findutils
-            nerd-fonts.fira-code
-            nerd-fonts.fira-mono
-            nerd-fonts.meslo-lg
-            fd
-            httpie
-            jq
-            jujutsu
-            just
-            lazygit
-            meld
-            nix-index
-            pass
-            progress
-            restic
-            ripgrep
-            tldr
-            trash-cli
-            unzip
-            yubikey-manager
-            zip
+        btop
+        comma
+        coreutils
+        devenv
+        findutils
+        nerd-fonts.fira-code
+        nerd-fonts.fira-mono
+        nerd-fonts.meslo-lg
+        fd
+        httpie
+        jq
+        jujutsu
+        just
+        lazygit
+        meld
+        nix-index
+        pass
+        progress
+        restic
+        ripgrep
+        tldr
+        trash-cli
+        unzip
+        yubikey-manager
+        zip
     ];
 }
