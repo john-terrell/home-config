@@ -20,7 +20,8 @@
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
                 tp = "trash-put";
                 ts = "tmux-sessionizer";
-                wifi_bonk = "modprobe -v rtw89_8852ce"
+                # command to reset the wifi driver on Legion 5i after failing to load after suspend
+                wifi_bonk = "modprobe -v rtw89_8852ce";
             };
             sessionPath = [
                 "${config.home.homeDirectory}/.local/bin"
