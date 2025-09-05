@@ -65,5 +65,15 @@
         action = "<cmd>CMakeGenerate<CR>";
         key = "<leader>bc";
     }
+    {
+        mode = "n";
+        action = "<cmd>cnext<CR>";
+        key = "<leader>]";
+    }
+    {
+        mode = "n";
+        action = "<cmd>cprev<CR>";
+        key = "<leader>[";
+    }
     ];
 }
