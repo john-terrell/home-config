@@ -11,6 +11,9 @@
     ];
     config = lib.mkMerge [
     {
+        xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
+TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell)
+        '';
         home = {
             username = "johnt";
             homeDirectory = if pkgs.hostPlatform.isLinux then "/home/${config.home.username}" else "/Users/${config.home.username}";
@@ -19,9 +22,9 @@
             shellAliases = {
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
                 tp = "trash-put";
-                ts = "tmux-sessionizer";
                 # command to reset the wifi driver on Legion 5i after failing to load after suspend
                 wifi_bonk = "modprobe -v rtw89_8852ce";
+                ts = "tmux-sessionizer";
             };
             sessionPath = [
                 "${config.home.homeDirectory}/.local/bin"
@@ -82,6 +85,14 @@
                     [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
                     source ~/.p10k.zsh
                     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+                    if [ ! -x ~/.local/bin/tmux-sessionizer ]; then
+                        echo "tmux-sessionizer not found...downloading..."
+                        mkdir -p ~/.local/bin
+                        rm -rf ~/.local/bin/tmux-sessionizer
+                        curl --silent -L https://raw.githubusercontent.com/john-terrell/tmux-sessionizer/refs/heads/master/tmux-sessionizer -o ~/.local/bin/tmux-sessionizer
+                        chmod +x ~/.local/bin/tmux-sessionizer
+                    fi
                 '';
                 plugins = with pkgs; [
                 {
