@@ -81,6 +81,15 @@
                 '';
             };
         };
+        dap = {
+            enable = true;
+        };
+        dap-lldb = {
+            enable = true;
+        };
+        dap-ui = {
+            enable = true;
+        };
         lsp = {
             enable = true;
             servers = {
