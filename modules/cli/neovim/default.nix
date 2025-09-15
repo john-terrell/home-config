@@ -4,9 +4,6 @@
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
-        extraLuaConfig = ''
-            require("johnt")
-            '';
 
         extraPackages = with pkgs; [
             clang

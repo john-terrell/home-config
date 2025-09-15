@@ -1,8 +1,8 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        ./nixvim
-        #./neovim
+        #./nixvim
+        ./neovim
     ];
 
     programs.bat = {enable = true;};
@@ -50,6 +50,8 @@
             bind -r l select-pane -R
             bind -r j select-pane -D
             bind -r k select-pane -U
+
+            set -sg escape-time 10
         '';
     };
 
@@ -62,6 +64,7 @@
     home.packages = with pkgs; [
         alejandra
         btop
+        cmake-language-server
         comma
         coreutils
         devenv
@@ -75,6 +78,7 @@
         jujutsu
         just
         lazygit
+        lua-language-server
         meld
         nix-index
         pass

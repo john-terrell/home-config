@@ -1,0 +1,5 @@
+# Setup tmux
+tmux rename-window "SHELL"
+
+tmux new-window -t home-config -n Home-Config "vi ."
+

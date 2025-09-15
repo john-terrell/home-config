@@ -12,7 +12,7 @@
     config = lib.mkMerge [
     {
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
-TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell)
+TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/.config/)
         '';
         home = {
             username = "johnt";
@@ -39,7 +39,6 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell)
             git = {
                 enable = true;
                 difftastic.enable = true;
-                userEmail = "john@coolpeople.io";
                 userName = "John W. Terrell";
                 signing.key = "64EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
