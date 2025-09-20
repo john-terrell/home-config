@@ -12,7 +12,7 @@
     config = lib.mkMerge [
     {
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
-TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/.config/)
+TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
         '';
         home = {
             username = "johnt";
