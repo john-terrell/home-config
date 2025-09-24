@@ -92,6 +92,11 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
                         curl --silent -L https://raw.githubusercontent.com/john-terrell/tmux-sessionizer/refs/heads/master/tmux-sessionizer -o ~/.local/bin/tmux-sessionizer
                         chmod +x ~/.local/bin/tmux-sessionizer
                     fi
+
+                    export AWS_ACCESS_KEY_ID=$(pass restic/cpn_backups/b2_key_id)
+                    export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
+                    export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
+                    export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
                 '';
                 plugins = with pkgs; [
                 {
