@@ -78,6 +78,7 @@
         jujutsu
         just
         lazygit
+        lazyjj
         lua-language-server
         meld
         nix-index
