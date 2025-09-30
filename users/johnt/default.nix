@@ -118,6 +118,9 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
                     "C0B077947A793E7D66DCE451EA5B9A8C05A954D6"
                 ];
             };
+            syncthing = {
+                enable = true;
+            };
         };
     }
     (lib.mkIf (systemConfig != {}) systemConfig)
