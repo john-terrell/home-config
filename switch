@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
 
-nix run github:nix-community/home-manager/release-25.05 -- switch --flake \#$USER@$(hostname)
+nix run --extra-experimental-features nix-command --extra-experimental-features flakes github:nix-community/home-manager/release-25.05 -- --extra-experimental-features nix-command --extra-experimental-features flakes  switch --flake \#$USER@$(hostname)

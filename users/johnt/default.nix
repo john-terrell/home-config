@@ -12,7 +12,7 @@
     config = lib.mkMerge [
     {
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
-TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/.config/)
+TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
         '';
         home = {
             username = "johnt";
@@ -92,6 +92,11 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/.config/)
                         curl --silent -L https://raw.githubusercontent.com/john-terrell/tmux-sessionizer/refs/heads/master/tmux-sessionizer -o ~/.local/bin/tmux-sessionizer
                         chmod +x ~/.local/bin/tmux-sessionizer
                     fi
+
+                    export AWS_ACCESS_KEY_ID=$(pass restic/cpn_backups/b2_key_id)
+                    export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
+                    export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
+                    export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
                 '';
                 plugins = with pkgs; [
                 {
@@ -115,6 +120,9 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/.config/)
                 sshKeys = [
                     "C0B077947A793E7D66DCE451EA5B9A8C05A954D6"
                 ];
+            };
+            syncthing = {
+                enable = true;
             };
         };
     }
