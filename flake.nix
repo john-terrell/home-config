@@ -31,6 +31,19 @@
                 ];
             };
 
+            "johnt@xps15" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
+                extraSpecialArgs = {
+                    inherit inputs outputs;
+                    systemConfig = {};
+                };
+                modules = [
+                    nixvim.homeManagerModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/desktop.nix
+                ];
+            };
+
             "johnt@macbookpro" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages."aarch64-darwin";
                 extraSpecialArgs = {
