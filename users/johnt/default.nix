@@ -11,6 +11,7 @@
     ];
     config = lib.mkMerge [
     {
+        xdg.enable = true;
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
 TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
         '';
@@ -22,13 +23,8 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
             shellAliases = {
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
                 tp = "trash-put";
-                # command to reset the wifi driver on Legion 5i after failing to load after suspend
-                wifi_bonk = "modprobe -v rtw89_8852ce";
                 ts = "tmux-sessionizer";
             };
-            sessionPath = [
-                "${config.home.homeDirectory}/.local/bin"
-            ];
         };
 
         fonts.fontconfig.enable = true;
@@ -85,18 +81,19 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
                     source ~/.p10k.zsh
                     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-                    if [ ! -x ~/.local/bin/tmux-sessionizer ]; then
+                    if [ ! -x ~/.bin/tmux-sessionizer ]; then
                         echo "tmux-sessionizer not found...downloading..."
-                        mkdir -p ~/.local/bin
-                        rm -rf ~/.local/bin/tmux-sessionizer
-                        curl --silent -L https://raw.githubusercontent.com/john-terrell/tmux-sessionizer/refs/heads/master/tmux-sessionizer -o ~/.local/bin/tmux-sessionizer
-                        chmod +x ~/.local/bin/tmux-sessionizer
+                        mkdir -p ~/.bin
+                        rm -rf ~/.bin/tmux-sessionizer
+                        curl --silent -L https://raw.githubusercontent.com/john-terrell/tmux-sessionizer/refs/heads/master/tmux-sessionizer -o ~/.bin/tmux-sessionizer
+                        chmod +x ~/.bin/tmux-sessionizer
                     fi
 
                     export AWS_ACCESS_KEY_ID=$(pass restic/cpn_backups/b2_key_id)
                     export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
                     export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
                     export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
+                    export PATH=$HOME/.bin:$PATH
                 '';
                 plugins = with pkgs; [
                 {
