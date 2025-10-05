@@ -13,7 +13,7 @@
     {
         xdg.enable = true;
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
-TS_SEARCH_PATHS=(~/Projects ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
+TS_SEARCH_PATHS=(~/Projects ~/Projects/TauInteractive ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
         '';
         home = {
             username = "johnt";
