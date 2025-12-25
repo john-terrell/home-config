@@ -88,6 +88,7 @@
         ripgrep
         tldr
         trash-cli
+        tree-sitter
         unzip
         yubikey-manager
         zip
