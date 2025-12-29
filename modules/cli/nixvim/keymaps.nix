@@ -21,5 +21,12 @@
         # CMake support
         { mode = "n"; action = "<cmd>CMakeBuild<cr>"; key = "<leader>bb"; }
         { mode = "n"; action = "<cmd>CMakeGenerate<cr>"; key = "<leader>bc"; }
+
+        # lazygit
+        { mode = "n"; action = "<cmd>LazyGit<cr>"; key = "<leader>gg"; }
+
+        # DAP
+        { mode = "n"; action = ":lua require('dap').toggle_breakpoint()<cr>"; key = "<leader>db"; }
+        { mode = "n"; action = ":lua require('dap').continue()<cr>"; key = "<leader>dc"; }
     ];
 }

@@ -7,6 +7,7 @@
         settings = {
             sources = [
                 { name = "nvim_lsp"; }
+                { name = "git"; }
                 { name = "path"; }
                 {
                     name = "buffer";
@@ -24,4 +25,16 @@
             };
         };
     };
+
+    # Buffer words source
+    plugins.cmp-buffer.enable = true;
+
+    # Git source
+    plugins.cmp-git.enable = true;
+
+    # LSP source
+    plugins.cmp-nvim-lsp.enable = true;
+
+    # Filesystem path source
+    plugins.cmp-path.enable = true;
 }

@@ -4,21 +4,15 @@
         ./cmake-tools.nix
         ./cmp.nix
         ./conform.nix
+        ./dap.nix
+        ./lazygit.nix
         ./lsp.nix
+        ./noice.nix
         ./snacks.nix
         ./treesitter.nix
     ];
 
     plugins = {
-        dap = {
-            enable = true;
-        };
-        dap-lldb = {
-            enable = true;
-        };
-        dap-ui = {
-            enable = true;
-        };
         lualine = {
             enable = true;
         };
