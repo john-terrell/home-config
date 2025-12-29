@@ -26,7 +26,14 @@
         { mode = "n"; action = "<cmd>LazyGit<cr>"; key = "<leader>gg"; }
 
         # DAP
-        { mode = "n"; action = ":lua require('dap').toggle_breakpoint()<cr>"; key = "<leader>db"; }
-        { mode = "n"; action = ":lua require('dap').continue()<cr>"; key = "<leader>dc"; }
+        { mode = "n"; action = ":lua require('dapui').toggle()<cr>"; key = "<leader>dd"; }
+        { mode = "n"; action = ":lua equire('dap').toggle_breakpoint()<cr>"; key = "<leader>db"; }
+        { mode = "n"; action = ":lua require('dapui').open() require('dap').continue()<cr>"; key = "<leader>dc"; }
+
+        # TMux
+        { mode = "n"; action = "<cmd>silent ! tmux neww tmux-sessionizer<CR>"; key = "<leader>tt"; }
+
+        # Terminal
+        { mode = "n"; action = ":lua Snacks.terminal()<cr>"; key = "<leader>ft"; }
     ];
 }
