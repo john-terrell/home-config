@@ -35,5 +35,10 @@
 
         # Terminal
         { mode = "n"; action = ":lua Snacks.terminal()<cr>"; key = "<leader>ft"; }
+
+        # LSP
+        { mode = "n"; action = ":lua vim.lsp.buf.type_definition()<cr>"; key = "<leader>gd"; }
+        { mode = "n"; action = ":lua vim.lsp.buf.references()<cr>"; key = "<leader>gr"; }
+        { mode = "n"; action = ":lua vim.lsp.buf.document_symbol()<cr>"; key = "<leader>gO"; }
     ];
 }

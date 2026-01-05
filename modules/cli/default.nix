@@ -55,6 +55,15 @@
         '';
     };
 
+    programs.vscode = {
+      enable = true;
+        profiles.default.extensions = with pkgs.vscode-extensions; [
+        ms-vscode.cpptools
+        ms-vscode.cmake-tools
+        vadimcn.vscode-lldb
+      ];
+    };
+
     programs.zoxide = {
         enable = true;
         enableFishIntegration = true;
