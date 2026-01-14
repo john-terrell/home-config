@@ -29,7 +29,7 @@
                 "CursorHold"
                 "CursorHoldI"
             ];
-            callback = "if mode() != 'c' | checktime | endif";
+            callback = { "if mode() != 'c' | checktime | endif"; };
         }
     ];
 }
