@@ -22,14 +22,5 @@
               end
             ''; };
         }
-        {
-            event = [
-                "FocusGained"
-                "BufEnter"
-                "CursorHold"
-                "CursorHoldI"
-            ];
-            callback = "if mode() != 'c' | checktime | endif";
-        }
     ];
 }
