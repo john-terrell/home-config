@@ -27,7 +27,7 @@
 
         # DAP
         { mode = "n"; action = ":lua require('dapui').toggle()<cr>"; key = "<leader>dd"; }
-        { mode = "n"; action = ":lua equire('dap').toggle_breakpoint()<cr>"; key = "<leader>db"; }
+        { mode = "n"; action = ":lua require('dap').toggle_breakpoint()<cr>"; key = "<leader>db"; }
         { mode = "n"; action = ":lua require('dapui').open() require('dap').continue()<cr>"; key = "<leader>dc"; }
 
         # TMux

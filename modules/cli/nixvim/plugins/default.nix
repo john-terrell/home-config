@@ -13,6 +13,9 @@
     ];
 
     plugins = {
+        gitsigns = {
+            enable = true;
+        };
         lualine = {
             enable = true;
         };
