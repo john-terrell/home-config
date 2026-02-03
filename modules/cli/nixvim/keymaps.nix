@@ -40,5 +40,14 @@
         { mode = "n"; action = ":lua vim.lsp.buf.type_definition()<cr>"; key = "<leader>gd"; }
         { mode = "n"; action = ":lua vim.lsp.buf.references()<cr>"; key = "<leader>gr"; }
         { mode = "n"; action = ":lua vim.lsp.buf.document_symbol()<cr>"; key = "<leader>gO"; }
+
+        # DAP-ui
+        { mode = "n"; action = "<cmd>DapContinue<cr>"; key = "<F5>"; }
+        { mode = "n"; action = "<cmd>DapTerminate<cr>"; key = "<S-F5>"; }
+        { mode = "n"; action = "<cmd>DapToggleBreakpoint<cr>"; key = "<F9>"; }
+        { mode = "n"; action = "<cmd>DapClearBreakpoints<cr>"; key = "<S-F9>"; }
+        { mode = "n"; action = "<cmd>DapStepOver<cr>"; key = "<F10>"; }
+        { mode = "n"; action = "<cmd>DapStepInto<cr>"; key = "<F11>"; }
+        { mode = "n"; action = "<cmd>DapStepInto<cr>"; key = "<S-F11>"; }
     ];
 }
