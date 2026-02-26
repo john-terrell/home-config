@@ -49,5 +49,7 @@
         { mode = "n"; action = "<cmd>DapStepOver<cr>"; key = "<F10>"; }
         { mode = "n"; action = "<cmd>DapStepInto<cr>"; key = "<F11>"; }
         { mode = "n"; action = "<cmd>DapStepInto<cr>"; key = "<S-F11>"; }
+
+        { mode = "n"; action = { __raw = "function() require('dapui').elements.watches.add(vim.fn.expand('<cword>')) end"; }; key = "<leader>dw"; }
     ];
 }
