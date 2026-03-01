@@ -18,6 +18,7 @@
                 typescript
                 vim
                 vimdoc
+                wgsl
                 xml
                 yaml
             ];

@@ -21,6 +21,15 @@
                     ];
                 };
             };
+            rust_analyzer = {
+                enable = true;
+                # The below are used since Cargo and Rustc are installed elsewhere
+                installCargo = false;
+                installRustc = false;
+            };
+            wgsl_analyzer = {
+                enable = true;
+            };
             zls = {
                 enable = true;
                 settings = {

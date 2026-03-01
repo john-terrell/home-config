@@ -73,6 +73,7 @@
     home.packages = with pkgs; [
         alejandra
         btop
+        cargo
         cmake-language-server
         comma
         coreutils
@@ -95,10 +96,13 @@
         progress
         restic
         ripgrep
+        rustc
+        rust-analyzer
         tldr
         trash-cli
         tree-sitter
         unzip
+        wgsl-analyzer
         yubikey-manager
         zip
     ];
