@@ -73,6 +73,7 @@
     home.packages = with pkgs; [
         alejandra
         btop
+        cargo
         cmake-language-server
         comma
         coreutils
@@ -91,10 +92,14 @@
         lua-language-server
         meld
         nix-index
+        openscad
+        openscad-lsp
         pass
         progress
         restic
         ripgrep
+        rustc
+        rust_analyzer
         tldr
         trash-cli
         tree-sitter
