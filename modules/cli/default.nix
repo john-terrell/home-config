@@ -92,6 +92,8 @@
         lua-language-server
         meld
         nix-index
+        openscad
+        openscad-lsp
         pass
         progress
         restic

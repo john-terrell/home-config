@@ -21,6 +21,9 @@
                     ];
                 };
             };
+            openscad_lsp = {
+                enable = true;
+            };
             rust_analyzer = {
                 enable = true;
                 # The below are used since Cargo and Rustc are installed elsewhere
