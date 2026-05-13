@@ -3,11 +3,10 @@
     programs.nixvim = {
         imports = [
             ./autocmd.nix
-            ./bufferline.nix
             ./diagnostic.nix
             ./keymaps.nix
             ./options.nix
-            ./plugins.nix
+            ./plugins
         ];
 
         config = {

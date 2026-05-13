@@ -1,12 +1,26 @@
 {
     autoCmd = [
-    {
-        command = "let &scrolloff = winheight(0) / 4";
-        event = [
-            "VimEnter"
+        # Set up an autocmd to adjust the scroll offset so there's always room around the current line
+        {
+            event = [
+                "VimEnter"
                 "WinEnter"
-        ];
-    }
+            ];
+            command = "let &scrolloff = winheight(0) / 4";
+        }
+        # Set up an autocmd to change line number colors above and below current line
+        {
+            event = [
+                "BufRead"
+            ];
+            callback = { __raw = ''
+              -- Set highlight groups
+              function()
+                vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#000000", bg = "#aaaaaa" })
+                vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#ffa0a0" })
+                vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#a0ffa0" })
+              end
+            ''; };
+        }
     ];
 }
-

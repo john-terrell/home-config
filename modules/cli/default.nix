@@ -1,8 +1,8 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        #./nixvim
-        ./neovim
+        ./nixvim
+        #./neovim
     ];
 
     programs.bat = {enable = true;};
@@ -55,6 +55,15 @@
         '';
     };
 
+    programs.vscode = {
+      enable = true;
+        profiles.default.extensions = with pkgs.vscode-extensions; [
+        ms-vscode.cpptools
+        ms-vscode.cmake-tools
+        vadimcn.vscode-lldb
+      ];
+    };
+
     programs.zoxide = {
         enable = true;
         enableFishIntegration = true;
@@ -64,6 +73,7 @@
     home.packages = with pkgs; [
         alejandra
         btop
+        cargo
         cmake-language-server
         comma
         coreutils
@@ -82,13 +92,19 @@
         lua-language-server
         meld
         nix-index
+        openscad
+        openscad-lsp
         pass
         progress
         restic
         ripgrep
+        rustc
+        rust-analyzer
         tldr
         trash-cli
+        tree-sitter
         unzip
+        wgsl-analyzer
         yubikey-manager
         zip
     ];

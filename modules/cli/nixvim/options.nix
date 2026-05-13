@@ -3,6 +3,8 @@
 # Use :h <option> to load help for given <option>
 {
   opts = {
+    autoread = true;
+
     # Don't stop backspace at insert
     backspace.__raw = ''
       vim.list_extend(vim.opt.backspace:get(), { "nostop" })
