@@ -1,17 +1,33 @@
 {
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
         home-manager = {
-            url = "github:nix-community/home-manager/release-25.05";
+            url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-doom-emacs-unstraightened = {
+            url = "github:marienz/nix-doom-emacs-unstraightened";
+            inputs = {
+              # If you use the home-manager module, you can set your doomdir here.
+              #
+              # If your Doom configuration is in this flake:
+              #doomdir.url = "./doom.d";
+              # If your Doom configuration is in a different repository:
+              doomdir.url = "git+https://github.com/john-terrell/doomdir";
+              # Or leave `doomdir` unset and set `programs.doom-emacs.doomDir` in your
+              # home-manager configuration (see below).
+
+              # Optional, to download less. Neither the module nor the overlay uses this input.
+              nixpkgs.follows = "";
+            };
+        };
     };
 
-    outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs: let
+    outputs = { self, nixpkgs, home-manager, nixvim, nix-doom-emacs-unstraightened, ... }@inputs: let
         inherit (self) outputs;
     in {
         overlays = import ./overlays { inherit inputs outputs; };
@@ -25,7 +41,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/desktop.nix
                 ];
@@ -38,7 +55,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/desktop.nix
                 ];
@@ -51,7 +69,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/darwin.nix
                 ];
@@ -64,7 +83,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/desktop.nix
                 ];
@@ -77,7 +97,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/darwin.nix
                 ];
@@ -90,7 +111,8 @@
                     systemConfig = {};
                 };
                 modules = [
-                    nixvim.homeManagerModules.nixvim
+                    nixvim.homeModules.nixvim
+                    nix-doom-emacs-unstraightened.homeModule
                         ./users/johnt
                         ./users/johnt/profiles/desktop.nix
                 ];

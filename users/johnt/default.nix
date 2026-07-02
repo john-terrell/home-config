@@ -18,7 +18,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
         home = {
             username = "johnt";
             homeDirectory = if pkgs.hostPlatform.isLinux then "/home/${config.home.username}" else "/Users/${config.home.username}";
-            stateVersion = "25.05";
+            stateVersion = "26.05";
             file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
             shellAliases = {
                 rm = "echo rm disabled. Use trash-put \\(tp\\) instead...";
@@ -31,22 +31,32 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
 
         programs = {
             home-manager.enable = true;
+            doom-emacs = {
+               enable = true;
+            };
+
+            difftastic = {
+                enable = true;
+                git.enable = true;
+            };
 
             git = {
                 enable = true;
-                difftastic.enable = true;
-                userName = "John W. Terrell";
-                signing.key = "64EDA67B2782882D8A5A83EC2E424258DD3731F4";
+                signing.key = "qq4EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
-                delta.enable = false; # prefer difftastic
-                    lfs.enable = true;
-                aliases = {
-                    st = "status";
-                    logd = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-                };
-                extraConfig = {
-                    core.excludesfile = "~/.gitignore_global";
-                    init.defaultBranch = "main";
+                lfs.enable = true;
+                settings = {
+                    aliases = {
+                        st = "status";
+                        logd = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+                    };
+                    extraConfig = {
+                        core.excludesfile = "~/.gitignore_global";
+                        init.defaultBranch = "main";
+                    };
+                    user = {
+                        user = "John W. Terrell";
+                    };
                 };
             };
 

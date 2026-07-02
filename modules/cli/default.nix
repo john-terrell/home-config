@@ -1,7 +1,7 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        ./nixvim
+        #./nixvim
         #./neovim
     ];
 
@@ -78,6 +78,7 @@
         comma
         coreutils
         devenv
+        dune3d
         findutils
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
