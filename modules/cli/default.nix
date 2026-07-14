@@ -22,7 +22,7 @@
     };
 
     programs.eza = {
-        enable = true;
+        enable = false;
         enableFishIntegration = true;
         enableBashIntegration = true;
         extraOptions = ["-l" "--icons" "--git" "-a"];
@@ -79,10 +79,13 @@
         coreutils
         devenv
         dune3d
+        emacs
         findutils
+        fontconfig
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
         nerd-fonts.meslo-lg
+	nerd-fonts.symbols-only
         fd
         httpie
         jq
@@ -95,12 +98,15 @@
         nix-index
         openscad
         openscad-lsp
+        pandoc
         pass
         progress
         restic
         ripgrep
         rustc
         rust-analyzer
+        shellcheck
+        symbola
         tldr
         trash-cli
         tree-sitter

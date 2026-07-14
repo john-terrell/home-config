@@ -31,10 +31,6 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
 
         programs = {
             home-manager.enable = true;
-            doom-emacs = {
-               enable = true;
-            };
-
             difftastic = {
                 enable = true;
                 git.enable = true;
@@ -103,7 +99,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                     export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
                     export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
                     export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
-                    export PATH=$HOME/.bin:$PATH
+                    export PATH=$HOME/.bin:$HOME/.config/emacs/bin:$PATH
                 '';
                 plugins = with pkgs; [
                 {
@@ -130,6 +126,12 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
             };
             syncthing = {
                 enable = true;
+            };
+            emacs = {
+		enable = true;
+		client.enable = true;
+		defaultEditor = lib.mkDefault true;
+		socketActivation.enable = true;
             };
         };
     }

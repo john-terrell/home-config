@@ -31,5 +31,16 @@
 #     config.allowUnfree = true;
 #   };
 # };
+  emacs = pkgs.emacsWithPackagesFromUsePackage {
+    package = pkgs.emacsUnstable;
+    config = ./init.el;
+    extraEmacsPackages = epkgs: with epkgs; [
+      use-package
+    ];
+    overrides = final: _prev: {
+      nix-theme = final.callPackage ./theme.nix { inherit config; };
+    };
+    alwaysEnsure = true;
+  }; 
 }
 
