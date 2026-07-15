@@ -80,14 +80,17 @@
         devenv
         dune3d
         emacs
+        emacsPackages.vterm
         findutils
         fontconfig
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
         nerd-fonts.meslo-lg
-	nerd-fonts.symbols-only
+        nerd-fonts.symbols-only
         fd
         httpie
+        ispell
+        isync
         jq
         jujutsu
         just
@@ -95,8 +98,10 @@
         lazyjj
         lua-language-server
         meld
+        mu
         nix-index
         openscad
+        open-sans
         openscad-lsp
         pandoc
         pass
@@ -106,6 +111,7 @@
         rustc
         rust-analyzer
         shellcheck
+        sqlite
         symbola
         tldr
         trash-cli
@@ -113,8 +119,8 @@
         unzip
         wgsl-analyzer
         yubikey-manager
-	zig
-	zls
+        zig
+        zls
         zip
     ];
 }
