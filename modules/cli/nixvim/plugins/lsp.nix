@@ -3,9 +3,6 @@
     plugins.lsp = {
         enable = true;
         servers = {
-            erlang_lsp = {
-                enable = false;
-            };
             clangd = {
                 enable = true;
                 settings = {

@@ -3,7 +3,7 @@
         ./fzf.nix
         ./nixvim
         #./neovim
-    ]
+    ];
 
     programs.bat = {enable = true;};
 
@@ -113,6 +113,8 @@
         unzip
         wgsl-analyzer
         yubikey-manager
+	zig
+	zls
         zip
     ];
 }
