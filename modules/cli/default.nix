@@ -1,9 +1,9 @@
 {pkgs, ...}: {
     imports = [
         ./fzf.nix
-        #./nixvim
+        ./nixvim
         #./neovim
-    ];
+    ]
 
     programs.bat = {enable = true;};
 
