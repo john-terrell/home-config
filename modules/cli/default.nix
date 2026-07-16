@@ -74,6 +74,7 @@
         alejandra
         btop
         cargo
+	cmake
         cmake-language-server
         comma
         coreutils
@@ -83,12 +84,14 @@
         emacsPackages.vterm
         findutils
         fontconfig
+	graphviz
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
         fd
         httpie
+	imagemagick
         ispell
         isync
         jq
