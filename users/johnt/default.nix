@@ -38,7 +38,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
 
             git = {
                 enable = true;
-                signing.key = "qq4EDA67B2782882D8A5A83EC2E424258DD3731F4";
+                signing.key = "64EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
                 lfs.enable = true;
                 settings = {
@@ -76,6 +76,13 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
 
             zellij = {
                 enable = true;
+            };
+
+            bash = {
+                enable = true;
+                initExtra = ''
+                    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+                '';
             };
 
             zsh = {
