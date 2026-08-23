@@ -41,6 +41,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                 signing.key = "qq4EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
                 lfs.enable = true;
+                xet.enable = true;
                 settings = {
                     aliases = {
                         st = "status";
