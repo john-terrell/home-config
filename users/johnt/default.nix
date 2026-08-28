@@ -38,10 +38,9 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
 
             git = {
                 enable = true;
-                signing.key = "qq4EDA67B2782882D8A5A83EC2E424258DD3731F4";
+                signing.key = "64EDA67B2782882D8A5A83EC2E424258DD3731F4";
                 signing.signByDefault = true;
                 lfs.enable = true;
-                xet.enable = true;
                 settings = {
                     aliases = {
                         st = "status";
@@ -79,6 +78,13 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                 enable = true;
             };
 
+            bash = {
+                enable = true;
+                initExtra = ''
+                    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+                '';
+            };
+
             zsh = {
                 enable = true;
                 initContent = ''
@@ -100,7 +106,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                     export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
                     export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
                     export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
-                    export PATH=$HOME/.bin:$HOME/.config/emacs/bin:$PATH
+                    export PATH=$HOME/.local/bin:$HOME/.bin:$HOME/.config/emacs/bin:$PATH
                 '';
                 plugins = with pkgs; [
                 {

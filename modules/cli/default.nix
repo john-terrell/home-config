@@ -84,14 +84,15 @@
         emacsPackages.vterm
         findutils
         fontconfig
-	graphviz
+        git-xet
+        graphviz
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
         fd
         httpie
-	imagemagick
+        imagemagick
         ispell
         isync
         jq
