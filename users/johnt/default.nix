@@ -106,6 +106,7 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                     export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
                     export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
                     export RESTIC_PASSWORD=$(pass restic/cpn_backups/passkey)
+                    export HINDSIGHT_API_KEY=$(pass homelab-tf/hindsight/shared_api_key)
                     export PATH=$HOME/.local/bin:$HOME/.bin:$HOME/.config/emacs/bin:$PATH
                 '';
                 plugins = with pkgs; [
