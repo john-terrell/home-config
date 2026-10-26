@@ -13,7 +13,7 @@
     {
         xdg.enable = true;
         xdg.configFile."tmux-sessionizer/tmux-sessionizer.conf".text = ''
-TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/TauInteractive ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
+TS_SEARCH_PATHS=(~/Projects ~/Projects/Misc ~/Projects/AlphaPixel ~/Projects/github ~/Projects/TauInteractive ~/Projects/john-terrell ~/Projects/PGRV ~/.config/)
         '';
         home = {
             username = "johnt";
@@ -102,6 +102,8 @@ TS_SEARCH_PATHS=(~/Projects ~/Projects/AlphaPixel ~/Projects/github ~/Projects/T
                         chmod +x ~/.bin/tmux-sessionizer
                     fi
 
+                    export PI_OPENAI_STREAM_FIRST_EVENT_TIMEOUT_MS=1600000
+                    export PI_OPENAI_STREAM_IDLE_TIMEOUT_MS=1600000
                     export AWS_ACCESS_KEY_ID=$(pass restic/cpn_backups/b2_key_id)
                     export AWS_SECRET_ACCESS_KEY=$(pass restic/cpn_backups/b2_application_key)
                     export RESTIC_REPOSITORY=s3:$(pass restic/cpn_backups/b2_endpoint)/CPN-Backups
