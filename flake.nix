@@ -17,6 +17,19 @@
         overlays = import ./overlays { inherit inputs outputs; };
 
         homeConfigurations = {
+            "johnt@p510" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
+                extraSpecialArgs = {
+                    inherit inputs outputs;
+                    systemConfig = {};
+                };
+                modules = [
+                    nixvim.homeModules.nixvim
+                        ./users/johnt
+                        ./users/johnt/profiles/desktop.nix
+                ];
+            };
+
             "johnt@p620" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages."x86_64-linux";
                 extraSpecialArgs = {

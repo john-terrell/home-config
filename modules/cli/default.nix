@@ -126,5 +126,6 @@
         zig
         zls
         zip
+        zoxide
     ];
 }
